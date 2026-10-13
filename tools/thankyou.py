@@ -66,6 +66,30 @@ def card(city):
 </div>'''
 
 
+# Picked from youtube.com/@AusPropertyRedom (latest uploads, closest to the workshop themes), 2026-10-13
+VIDEOS = [
+    ("vbE700KxaAo", "Banks are handing investors more money right now", "22:23"),
+    ("wDzJLX7toAo", "Empty auctions and reduced signs across Sydney", "18:32"),
+    ("wF6kFlocJEc", "The dangerous credit signals nobody is watching", "26:05"),
+    ("t-KvLCb9rP8", "Will Sydney see its biggest house price fall in 40 years?", "26:04"),
+    ("emyZTfQu5LU", "Why AI Data Centres Could Change Australian Property For The Next 10 Years", "29:36"),
+    ("QTdjnQyVXko", "Brisbane's Winning Pattern Is Now Flashing In Melbourne", "15:19"),
+]
+
+
+def videos():
+    out = []
+    for vid, title, dur in VIDEOS:
+        out.append(f'''<a href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener" style="display: flex; flex-direction: column; gap: 12px; color: #FFF3E9; text-decoration: none">
+<span style="position: relative; display: block; aspect-ratio: 16 / 9; background: #33001F; overflow: hidden">
+<img src="https://i.ytimg.com/vi/{vid}/hqdefault.jpg" alt="" loading="lazy" style="width: 100%; height: 100%; object-fit: cover; display: block">
+<span style="position: absolute; right: 8px; bottom: 8px; padding: 2px 8px; background: rgba(0,0,0,.8); {MONO}; font-size: 13px; letter-spacing: 0.04em">{dur}</span>
+</span>
+<span style="font-size: 18px; line-height: 1.35; font-weight: 600">{title}</span>
+</a>''')
+    return "\n".join(out)
+
+
 def step(n, title, body):
     return f'''<div style="flex: 1 1 280px; min-width: 0; border-top: 3px solid #4D0032; padding-top: 16px; display: flex; flex-direction: column; gap: 6px">
 <div style="{MONO}; font-size: 14px; letter-spacing: 0.12em; color: #C7411F">{n}</div>
@@ -114,9 +138,17 @@ body = f'''<body>
 </section>
 
 <section style="padding: clamp(44px, 4.6vw, 64px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 20px 40px">
-<div style="{ANTON}; font-size: clamp(32px, 3.6vw, 48px); line-height: 1; text-transform: uppercase">While you wait.</div>
-<a href="https://www.youtube.com/@AusPropertyRedom" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 32px; background: #FF7150; color: #4D0032; text-decoration: none; {ANTON}; font-size: 24px; letter-spacing: 0.03em; text-transform: uppercase">Watch Australian Property Talk</a>
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 16px 40px">
+<div style="display: flex; flex-direction: column; gap: 8px">
+<div style="{ANTON}; font-size: clamp(36px, 4.4vw, 60px); line-height: 1; text-transform: uppercase">While you wait.</div>
+<p style="margin: 0; font-size: 18px; color: #D8B9C9">Catch up on Australian Property Talk.</p>
+</div>
+<a href="https://www.youtube.com/@AusPropertyRedom" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 24px; border: 2px solid #FF7150; color: #FF7150; text-decoration: none; {ANTON}; font-size: 20px; letter-spacing: 0.03em; text-transform: uppercase">See all videos</a>
+</div>
+<div class="yt-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px 24px">
+{videos()}
+</div>
 </div>
 </section>
 
