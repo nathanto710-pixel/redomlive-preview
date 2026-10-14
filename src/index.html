@@ -321,6 +321,7 @@ body{margin:0;background:#4D0032}
 @media (max-width:600px){.room-loop{aspect-ratio:4/3!important}}
 @media (max-width:600px){.about-photos{gap:8px!important}}
 a{color:#FF7150}a:hover{color:#FF8F74}
+.vsl:hover .vsl-bar{background:#FF8F74!important}.vsl:focus-visible{outline:3px solid #FF7150;outline-offset:4px}
 </style>
 </head>
 <body>
@@ -335,18 +336,18 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 
 <section style="padding: clamp(40px, 4.4vw, 60px) clamp(20px, 5vw, 80px) clamp(48px, 5vw, 68px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
-<div style="flex: 2.4 1 520px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
+<div style="flex: 1.4 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #FF7150">Sydney 22–23 Oct · Melbourne 29–30 Oct 2026</div>
-<h1 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(48px, 6.3vw, 91px); line-height: 0.97; letter-spacing: 0.005em; text-transform: uppercase">Your job is gone.<br><span style="color: #FF7150">Your suburb is next.</span></h1>
+<h1 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(48px, 4.4vw, 72px); line-height: 0.97; letter-spacing: 0.005em; text-transform: uppercase">Your job is gone.<br><span style="color: #FF7150">Your suburb is next.</span></h1>
 <p style="margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; max-width: 620px">2026 is the year property investing reset. Three hours. Fifty seats. The 20 markets I'd buy in now.</p>
 <a id="hero-cta" href="#register" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 64px; padding: 0 36px; background: #FF7150; color: #4D0032; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; letter-spacing: 0.03em; text-transform: uppercase">Get a seat · $49</a>
 </div>
-<div style="flex: 1 1 260px; max-width: 370px; min-width: 0; position: relative; margin: 0 14px 14px 0">
-<div style="position: absolute; left: 14px; top: 14px; width: 100%; height: 100%; background: #FF7150"></div>
-<div style="position: relative; aspect-ratio: 4 / 5; background: #F4E5DB; overflow: hidden">
-<img src="assets/headshot.jpg" alt="Redom Syed" style="width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block">
-
-</div>
+<!-- VSL: lite YouTube embed. Shows the video's own thumbnail; the player only loads on click. -->
+<div style="flex: 1 1 400px; max-width: 540px; min-width: 0; position: relative">
+<button type="button" class="vsl" data-id="0E2edqijs68" aria-label="Play video: REDOM LIVE, where the money flows next in Australia" style="position: relative; display: flex; flex-direction: column; width: 100%; padding: 0; border: 0; background: #33001F; cursor: pointer; overflow: hidden; text-align: left">
+<img src="https://i.ytimg.com/vi/0E2edqijs68/maxresdefault.jpg" alt="" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block">
+<span class="vsl-bar" style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 16px; background: #FF7150; color: #4D0032; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(18px, 1.7vw, 22px); letter-spacing: 0.03em; text-transform: uppercase"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg>Watch: where the money flows next</span>
+</button>
 </div>
 </div>
 </section>
@@ -606,6 +607,25 @@ a{color:#FF7150}a:hover{color:#FF8F74}
   locks.forEach(function(l){l.addEventListener("click",function(e){e.stopPropagation();var on=!l.classList.contains("open");closeAll(l);l.classList.toggle("open",on);l.setAttribute("aria-expanded",on?"true":"false");});});
   document.addEventListener("click",function(){closeAll();});
   document.addEventListener("keydown",function(e){if(e.key==="Escape")closeAll();});
+})();
+</script>
+<script>
+/* VSL: swap the thumbnail for the YouTube player on click (player never loads until then) */
+(function(){
+  document.querySelectorAll(".vsl").forEach(function(b){
+    b.addEventListener("click",function(){
+      var box=document.createElement("div");
+      box.style.cssText="position:relative;width:100%;aspect-ratio:16/9;background:#000";
+      var f=document.createElement("iframe");
+      f.src="https://www.youtube-nocookie.com/embed/"+b.dataset.id+"?autoplay=1&rel=0&playsinline=1";
+      f.title="REDOM LIVE: where the money flows next in Australia";
+      f.allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
+      f.allowFullscreen=true;
+      f.style.cssText="position:absolute;inset:0;width:100%;height:100%;border:0";
+      box.appendChild(f);
+      b.replaceWith(box);
+    });
+  });
 })();
 </script>
 <div class="sticky-cta" aria-hidden="true"><a href="#register" tabindex="-1">Get a seat · $49</a></div>
