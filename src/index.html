@@ -321,11 +321,14 @@ body{margin:0;background:#4D0032}
 @media (max-width:600px){.room-loop{aspect-ratio:4/3!important}}
 @media (max-width:600px){.about-photos{gap:8px!important}}
 a{color:#FF7150}a:hover{color:#FF8F74}
-.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;align-items:start}
-.qcard{margin:0;background:#fff;border:2px solid #4D0032;box-shadow:5px 5px 0 #FF7150;padding:16px 16px 14px;display:flex;flex-direction:column;gap:12px}
-.qcard q{font-family:'Anton','Impact',sans-serif;font-size:19px;line-height:1.15;text-transform:uppercase;quotes:"\201C" "\201D"}
-.qcard figcaption{align-self:flex-start;background:#4D0032;color:#FFF3E9;padding:4px 8px 3px;font-family:'Anton','Impact',sans-serif;font-size:13px;letter-spacing:.04em;text-transform:uppercase}
-@media (max-width:760px){.qgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:14px;margin:0 -20px;padding:0 20px 12px;scrollbar-width:none}.qgrid::-webkit-scrollbar{display:none}.qcard{flex:0 0 74%;margin:0;scroll-snap-align:start}}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:26px 40px}
+.qcard{margin:0;padding-top:16px;border-top:2px solid #4D0032;display:flex;flex-direction:column;gap:10px}
+.qcard q{position:relative;display:block;font-family:'Archivo','Helvetica Neue',sans-serif;font-size:19px;line-height:1.45;font-weight:500;color:#4D0032;quotes:"\201C" "\201D"}
+.qcard q::before{content:"\201C";position:absolute;left:-2px;top:-4px;font-family:'Anton','Impact',sans-serif;font-size:56px;line-height:1;color:#FF7150}
+.qcard q{padding-top:30px}
+.qcard q::after{content:"\201D"}
+.qcard figcaption{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#C7411F}
+@media (max-width:760px){.qgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:22px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px;scrollbar-width:none}.qgrid::-webkit-scrollbar{display:none}.qcard{flex:0 0 78%;scroll-snap-align:start}}
 .tstats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:6px}
 .tstats div{display:flex;align-items:baseline;gap:10px}
 .tstats b{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:clamp(40px,4vw,56px);line-height:1;color:#FF7150}
