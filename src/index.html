@@ -247,7 +247,7 @@ body{margin:0;background:#4D0032}
 .redact{box-sizing:border-box;background:#5E1A47;padding:18px 14px;display:flex;flex-direction:column;gap:7px}
 .redact i{display:block;height:12px;background:#2A0019}
 .redact i+i{height:8px;opacity:.75}
-@media (max-width:600px){.stage-banner{padding-top:340px!important}.stage-banner img{object-position:62% 20%!important}.stage-banner>div:last-child>div{flex:1 1 calc(50% - 20px)!important}.stage-banner>div:last-child>div>div:first-child{font-size:28px!important}}
+@media (max-width:600px){.stage-banner{padding-top:340px!important}.stage-banner img{top:auto!important;bottom:0;height:150%!important;object-position:26% 100%!important}.stage-banner>div:last-child>div{flex:1 1 calc(50% - 20px)!important}.stage-banner>div:last-child>div>div:first-child{font-size:28px!important}}
 /* Problem -> solution -> old vs new (Redom round 2) */
 .problem,.solution{padding:clamp(48px,5vw,76px) clamp(20px,5vw,80px)}
 .problem .wrap,.solution .wrap{max-width:1200px;margin:0 auto}
@@ -321,6 +321,12 @@ body{margin:0;background:#4D0032}
 @media (max-width:600px){.room-loop{aspect-ratio:4/3!important}}
 @media (max-width:600px){.about-photos{gap:8px!important}}
 a{color:#FF7150}a:hover{color:#FF8F74}
+.qgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.qcard{margin:0;background:#fff;border:2px solid #4D0032;box-shadow:8px 8px 0 #FF7150;padding:26px 24px 20px;display:flex;flex-direction:column;justify-content:space-between;gap:18px}
+.qcard q{font-family:'Anton','Impact',sans-serif;font-size:clamp(24px,2.2vw,30px);line-height:1.1;text-transform:uppercase;quotes:"\201C" "\201D"}
+.qcard figcaption{display:inline-block;align-self:flex-start;background:#4D0032;color:#FFF3E9;padding:6px 10px 5px;font-family:'Anton','Impact',sans-serif;font-size:16px;letter-spacing:.04em;text-transform:uppercase}
+@media (max-width:900px){.qgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:600px){.qgrid{grid-template-columns:1fr}}
 .tstats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:6px}
 .tstats div{display:flex;align-items:baseline;gap:10px}
 .tstats b{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:clamp(40px,4vw,56px);line-height:1;color:#FF7150}
@@ -388,10 +394,11 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 </section>
 
 
-<section class="stage-banner" style="position: relative; background: #4D0032; padding: clamp(180px, 23vw, 330px) clamp(20px, 5vw, 80px) 32px; overflow: hidden">
-<!-- STAGE PHOTO A: Flint Group Strategy Day. Previous image: assets/podcast-studio.jpg -->
-<img src="assets/stage-a.jpg" alt="Redom Syed speaking on stage" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 30%; display: block">
-<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(77, 0, 50, 0.2) 0%, rgba(77, 0, 50, 0.35) 50%, #4D0032 92%)"></div>
+<section class="stage-banner" style="position: relative; background: #4D0032; padding: clamp(280px, 34vw, 520px) clamp(20px, 5vw, 80px) 32px; overflow: hidden">
+<!-- Redom presenting to the full room at REDOM LIVE Sydney, 22 Oct. Previous image: assets/stage-a.jpg -->
+<img src="assets/sydney-room.jpg" alt="Redom Syed presenting to a full room at REDOM LIVE Sydney" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; object-fit: cover; object-position: 30% 78%; display: block">
+<div class="room-chip" style="position: absolute; left: clamp(20px, 5vw, 80px); top: 24px; z-index: 2; padding: 8px 14px 6px; background: #FF7150; color: #4D0032; font-family: 'Anton', 'Impact', sans-serif; font-size: 18px; letter-spacing: 0.04em; text-transform: uppercase">REDOM LIVE Sydney · 22 Oct · Sold out</div>
+<div style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: linear-gradient(180deg, rgba(77, 0, 50, 0) 0%, rgba(77, 0, 50, 0.1) 55%, #4D0032 96%)"></div>
 <div style="position: relative; max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 20px 40px">
 <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 34px; line-height: 1; color: #B0F6BB; text-transform: uppercase">Winner, 2025</div><div style="font-size: 15px; line-height: 1.35">Australian Finance Broker of the Year</div></div>
 <div style="flex: 1 1 220px; min-width: 0; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 34px; line-height: 1; color: #B0F6BB; text-transform: uppercase">1.3M+</div><div style="font-size: 15px; line-height: 1.35">YouTube views</div></div>
@@ -608,12 +615,23 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <div class="tvid"><span class="tind">Sydney attendee</span><video preload="none" playsinline poster="assets/testimonials/t1.jpg" src="assets/testimonials/t1.mp4"></video><button type="button" class="tplay" aria-label="Play: When you&#x27;ve got your investment lens on, you&#x27;ve got to have that at front of mind."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
 <figcaption><q>When you've got your investment lens on, you've got to have that at front of mind.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
-<figure class="tcard tquote">
-<div class="tquote-box"><span class="tind">Sydney attendee</span><q>Even with my own internal research, a lot of what we saw lined up pretty well.</q></div>
-<figcaption><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
-</figure>
 </div>
 <div class="evstrip" aria-label="Photos from REDOM LIVE Sydney"><div class="evtrack"><img src="assets/event/e01.jpg" alt="" loading="lazy"><img src="assets/event/e02.jpg" alt="" loading="lazy"><img src="assets/event/e03.jpg" alt="" loading="lazy"><img src="assets/event/e04.jpg" alt="" loading="lazy"><img src="assets/event/e05.jpg" alt="" loading="lazy"><img src="assets/event/e06.jpg" alt="" loading="lazy"><img src="assets/event/e07.jpg" alt="" loading="lazy"><img src="assets/event/e08.jpg" alt="" loading="lazy"><img src="assets/event/e09.jpg" alt="" loading="lazy"><img src="assets/event/e10.jpg" alt="" loading="lazy"><img src="assets/event/e11.jpg" alt="" loading="lazy"><img src="assets/event/e12.jpg" alt="" loading="lazy"><img src="assets/event/e01.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e02.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e03.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e04.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e05.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e06.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e07.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e08.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e09.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e10.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e11.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e12.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
+</div>
+</section>
+
+<!-- Quotes: verbatim lines from attendee interviews, no names -->
+<section id="quotes" style="background: #FFF3E9; color: #4D0032; padding: clamp(44px, 4.6vw, 64px) clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(36px, 4.2vw, 58px); line-height: 1; text-transform: uppercase">In their <span style="color: #C7411F">words.</span></h2>
+<div class="qgrid">
+<figure class="qcard"><q>Even with my own internal research, a lot of what we saw lined up pretty well.</q><figcaption>Sydney attendee · Sydney</figcaption></figure>
+<figure class="qcard"><q>If you think it's going to be same as how things are happening, it's not going to be same.</q><figcaption>Automation engineer · Sydney</figcaption></figure>
+<figure class="qcard"><q>The game's changed now. It's not all about property's going to keep going up in value.</q><figcaption>Sydney attendee · Sydney</figcaption></figure>
+<figure class="qcard"><q>The old way might not be working as well, moving into the future.</q><figcaption>Engineer &amp; business owner · Sydney</figcaption></figure>
+<figure class="qcard"><q>AI is sort of going to disrupt a lot of different industries moving forward.</q><figcaption>Sydney attendee · Sydney</figcaption></figure>
+<figure class="qcard"><q>Just learning a lot and yeah, it's been really productive.</q><figcaption>Property investor · Sydney</figcaption></figure>
+</div>
 </div>
 </section>
 
