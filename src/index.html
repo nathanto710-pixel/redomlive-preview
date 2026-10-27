@@ -321,6 +321,22 @@ body{margin:0;background:#4D0032}
 @media (max-width:600px){.room-loop{aspect-ratio:4/3!important}}
 @media (max-width:600px){.about-photos{gap:8px!important}}
 a{color:#FF7150}a:hover{color:#FF8F74}
+.tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;scroll-behavior:smooth}.tgrid::-webkit-scrollbar{display:none}
+.tcard{flex:0 0 calc((100% - 60px) / 4.25);scroll-snap-align:start}
+.tnav{display:flex;gap:10px}.tnav button{width:48px;height:48px;border-radius:50%;border:2px solid #FF7150;background:transparent;color:#FF7150;font-size:22px;line-height:1;cursor:pointer}.tnav button:hover{background:#FF7150;color:#4D0032}
+.tcard{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
+.tvid{position:relative;aspect-ratio:9/16;background:#33001F;overflow:hidden}
+.tvid video{width:100%;height:100%;object-fit:cover;display:block}
+.tplay{position:absolute;left:12px;bottom:12px;width:52px;height:52px;border-radius:50%;border:0;background:#FF7150;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 18px rgba(0,0,0,.4)}
+.tplay:hover{background:#FF8F74}.tplay:focus-visible{outline:3px solid #FFF3E9;outline-offset:3px}
+.tcard.playing .tplay{display:none}
+.tcard figcaption{display:flex;flex-direction:column;gap:6px}
+.tcard q{font-family:'Anton','Impact',sans-serif;font-size:22px;line-height:1.12;text-transform:uppercase;quotes:"\201C" "\201D"}
+.tcard figcaption span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#D8B9C9}
+.tquote-box{aspect-ratio:9/16;background:#6E0048;border:2px solid #FF7150;display:flex;align-items:center;padding:24px;box-sizing:border-box}
+.tquote-box q{font-size:30px;color:#FFF3E9}
+@media (max-width:1000px){.tcard{flex-basis:calc((100% - 40px) / 3.2)}}
+@media (max-width:760px){.tgrid{gap:16px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard{flex-basis:72%}.tnav{display:none}}
 .vsl:hover .vsl-bar{background:#FF8F74!important}.vsl:focus-visible{outline:3px solid #FF7150;outline-offset:4px}
 </style>
 </head>
@@ -527,6 +543,64 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <div style="max-width: 1200px; margin: 0 auto; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; text-transform: uppercase">Australia is going to get rich. <span style="color: #FF7150">Most Australians are going to get poorer.</span></div>
 </section>
 
+<!-- Testimonials: short answers from Sydney attendee interviews (no names, role/industry only). Videos load only on play. -->
+<section id="sydney" style="background: #4D0032; color: #FFF3E9; padding: clamp(44px, 4.6vw, 64px) clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
+<div style="display: flex; flex-direction: column; gap: 10px">
+<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B0F6BB">Sydney · 22 and 23 October</div>
+<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 5vw, 70px); line-height: 0.98; text-transform: uppercase">What Sydney <span style="color: #FF7150">said.</span></h2>
+<p style="margin: 0; font-size: 18px; color: #D8B9C9">Filmed in the room, at the break and after the sessions.</p>
+</div>
+<div class="tnav" style="align-self: flex-end; margin-top: -64px"><button type="button" data-dir="-1" aria-label="Previous">&larr;</button><button type="button" data-dir="1" aria-label="Next">&rarr;</button></div>
+<div class="tgrid">
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t8.jpg" src="assets/testimonials/t8.mp4"></video><button type="button" class="tplay" aria-label="Play: 49 bucks to learn something is a no-brainer."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>49 bucks to learn something is a no-brainer.</q><span>Engineer &amp; business owner · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t7.jpg" src="assets/testimonials/t7.mp4"></video><button type="button" class="tplay" aria-label="Play: A different kind of session, more than something which is to be sold."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>A different kind of session, more than something which is to be sold.</q><span>Automation engineer · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f3.jpg" src="assets/testimonials/f3.mp4"></video><button type="button" class="tplay" aria-label="Play: He explains everything in a very human-like approach."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>He explains everything in a very human-like approach.</q><span>Mortgage broking &amp; construction · Fri 23 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t5.jpg" src="assets/testimonials/t5.mp4"></video><button type="button" class="tplay" aria-label="Play: AI&#x27;s changed the game."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>AI's changed the game.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f2.jpg" src="assets/testimonials/f2.mp4"></video><button type="button" class="tplay" aria-label="Play: Him being in Treasury, he has more understanding of the economy."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>Him being in Treasury, he has more understanding of the economy.</q><span>Works in IT · Fri 23 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t4.jpg" src="assets/testimonials/t4.mp4"></video><button type="button" class="tplay" aria-label="Play: It&#x27;s just like one of the podcasts, but I&#x27;m here live."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>It's just like one of the podcasts, but I'm here live.</q><span>Property investor · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t3.jpg" src="assets/testimonials/t3.mp4"></video><button type="button" class="tplay" aria-label="Play: You can&#x27;t follow the existing ways of doing things."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>You can't follow the existing ways of doing things.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t2.jpg" src="assets/testimonials/t2.mp4"></video><button type="button" class="tplay" aria-label="Play: A little more receptive to the new way of thinking."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>A little more receptive to the new way of thinking.</q><span>Property investor · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f1.jpg" src="assets/testimonials/f1.mp4"></video><button type="button" class="tplay" aria-label="Play: Where exactly we should be buying in coming ten years."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>Where exactly we should be buying in coming ten years.</q><span>Sydney attendee · Fri 23 Oct</span></figcaption>
+</figure>
+<figure class="tcard">
+<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t1.jpg" src="assets/testimonials/t1.mp4"></video><button type="button" class="tplay" aria-label="Play: When you&#x27;ve got your investment lens on, you&#x27;ve got to have that at front of mind."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>When you've got your investment lens on, you've got to have that at front of mind.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+</figure>
+<figure class="tcard tquote">
+<div class="tquote-box"><q>Even with my own internal research, a lot of what we saw lined up pretty well.</q></div>
+<figcaption><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+</figure>
+</div>
+</div>
+</section>
+
 <section id="tickets" style="background: #FFF3E9; color: #4D0032; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
 <h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(46px, 6.6vw, 94px); line-height: 0.96; text-transform: uppercase">Move before the map does.</h2>
@@ -628,6 +702,22 @@ a{color:#FF7150}a:hover{color:#FF8F74}
       box.appendChild(f);
       b.replaceWith(box);
     });
+  });
+})();
+</script>
+<script>
+/* Testimonials: tap to play with sound, one at a time; the file only loads on play */
+(function(){
+  var cards=[].slice.call(document.querySelectorAll(".tcard")),grid=document.querySelector(".tgrid");
+  document.querySelectorAll(".tnav button").forEach(function(b){b.addEventListener("click",function(){var c=grid.querySelector(".tcard");grid.scrollBy({left:(c?c.offsetWidth+20:300)*Number(b.dataset.dir),behavior:"smooth"});});});
+  cards.forEach(function(c){
+    var v=c.querySelector("video"),b=c.querySelector(".tplay");
+    if(!v||!b)return;
+    b.addEventListener("click",function(){
+      cards.forEach(function(o){var ov=o.querySelector("video");if(ov&&ov!==v&&!ov.paused){ov.pause();}});
+      v.controls=true;c.classList.add("playing");var p=v.play();if(p&&p.catch)p.catch(function(){});
+    });
+    v.addEventListener("ended",function(){v.controls=false;c.classList.remove("playing");v.load();});
   });
 })();
 </script>
