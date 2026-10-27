@@ -321,6 +321,25 @@ body{margin:0;background:#4D0032}
 @media (max-width:600px){.room-loop{aspect-ratio:4/3!important}}
 @media (max-width:600px){.about-photos{gap:8px!important}}
 a{color:#FF7150}a:hover{color:#FF8F74}
+.tstats{display:flex;flex-wrap:wrap;gap:12px 40px;margin-top:6px}
+.tstats div{display:flex;align-items:baseline;gap:10px}
+.tstats b{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:clamp(40px,4vw,56px);line-height:1;color:#FF7150}
+.tstats span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#D8B9C9;max-width:12em;line-height:1.3}
+.tind{position:absolute;left:10px;top:10px;z-index:2;max-width:calc(100% - 20px);padding:7px 11px 6px;background:#FF7150;color:#4D0032;font-family:'Anton','Impact',sans-serif;font-size:17px;line-height:1.05;letter-spacing:.03em;text-transform:uppercase;box-shadow:0 4px 14px rgba(0,0,0,.35)}
+.tvid::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(51,0,31,.85),rgba(51,0,31,0));pointer-events:none}
+.tcard.playing .tvid::after,.tcard.playing .tind{display:none}
+.tplay{z-index:2}
+.tcard q{font-size:24px}
+.tcard .tday{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B0F6BB}
+.tquote-box{position:relative}
+.tcard:first-child{flex-basis:calc((100% - 60px) / 4.25 * 1.35)}
+.tcard:first-child q{font-size:30px}
+.tcard:first-child .tind{font-size:20px}
+.evstrip{display:flex;gap:12px;overflow:hidden;margin:0 calc(-1 * clamp(20px, 5vw, 80px));padding:0}
+.evtrack{display:flex;gap:12px;animation:evscroll 70s linear infinite;flex:0 0 auto}
+.evtrack img{height:clamp(170px,20vw,260px);width:auto;display:block;border-radius:2px}
+@keyframes evscroll{to{transform:translateX(calc(-50% - 6px))}}
+@media (prefers-reduced-motion:reduce){.evtrack{animation:none}}
 .tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;scroll-behavior:smooth}.tgrid::-webkit-scrollbar{display:none}
 .tcard{flex:0 0 calc((100% - 60px) / 4.25);scroll-snap-align:start}
 .tnav{display:flex;gap:10px}.tnav button{width:48px;height:48px;border-radius:50%;border:2px solid #FF7150;background:transparent;color:#FF7150;font-size:22px;line-height:1;cursor:pointer}.tnav button:hover{background:#FF7150;color:#4D0032}
@@ -336,7 +355,7 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .tquote-box{aspect-ratio:9/16;background:#6E0048;border:2px solid #FF7150;display:flex;align-items:center;padding:24px;box-sizing:border-box}
 .tquote-box q{font-size:30px;color:#FFF3E9}
 @media (max-width:1000px){.tcard{flex-basis:calc((100% - 40px) / 3.2)}}
-@media (max-width:760px){.tgrid{gap:16px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard{flex-basis:72%}.tnav{display:none}}
+@media (max-width:760px){.tstats{flex-wrap:nowrap;gap:14px}.tstats div{flex-direction:column;gap:4px;flex:1 1 0}.tstats b{font-size:40px}.tstats span{font-size:11px}.tcard:first-child{flex-basis:80%}.tgrid{gap:16px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard{flex-basis:72%}.tnav{display:none}}
 .vsl:hover .vsl-bar{background:#FF8F74!important}.vsl:focus-visible{outline:3px solid #FF7150;outline-offset:4px}
 </style>
 </head>
@@ -549,55 +568,52 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <div style="display: flex; flex-direction: column; gap: 10px">
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B0F6BB">Sydney · 22 and 23 October</div>
 <h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 5vw, 70px); line-height: 0.98; text-transform: uppercase">What Sydney <span style="color: #FF7150">said.</span></h2>
-<p style="margin: 0; font-size: 18px; color: #D8B9C9">Filmed in the room, at the break and after the sessions.</p>
+<div class="tstats"><div><b>2</b><span>Sydney sessions, sold out</span></div><div><b>9</b><span>Attendees on camera</span></div><div><b>0</b><span>Scripts. Their own words.</span></div></div>
 </div>
 <div class="tnav" style="align-self: flex-end; margin-top: -64px"><button type="button" data-dir="-1" aria-label="Previous">&larr;</button><button type="button" data-dir="1" aria-label="Next">&rarr;</button></div>
 <div class="tgrid">
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t8.jpg" src="assets/testimonials/t8.mp4"></video><button type="button" class="tplay" aria-label="Play: 49 bucks to learn something is a no-brainer."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>49 bucks to learn something is a no-brainer.</q><span>Engineer &amp; business owner · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Engineer &amp; business owner</span><video preload="none" playsinline poster="assets/testimonials/t8.jpg" src="assets/testimonials/t8.mp4"></video><button type="button" class="tplay" aria-label="Play: 49 bucks to learn something is a no-brainer."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>49 bucks to learn something is a no-brainer.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t7.jpg" src="assets/testimonials/t7.mp4"></video><button type="button" class="tplay" aria-label="Play: A different kind of session, more than something which is to be sold."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>A different kind of session, more than something which is to be sold.</q><span>Automation engineer · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Automation engineer</span><video preload="none" playsinline poster="assets/testimonials/t7.jpg" src="assets/testimonials/t7.mp4"></video><button type="button" class="tplay" aria-label="Play: A different kind of session, more than something which is to be sold."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>A different kind of session, more than something which is to be sold.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f3.jpg" src="assets/testimonials/f3.mp4"></video><button type="button" class="tplay" aria-label="Play: He explains everything in a very human-like approach."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>He explains everything in a very human-like approach.</q><span>Mortgage broking &amp; construction · Fri 23 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Mortgage broking &amp; construction</span><video preload="none" playsinline poster="assets/testimonials/f3.jpg" src="assets/testimonials/f3.mp4"></video><button type="button" class="tplay" aria-label="Play: He explains everything in a very human-like approach."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>He explains everything in a very human-like approach.</q><span class="tday">Fri 23 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t5.jpg" src="assets/testimonials/t5.mp4"></video><button type="button" class="tplay" aria-label="Play: AI&#x27;s changed the game."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>AI's changed the game.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Sydney attendee</span><video preload="none" playsinline poster="assets/testimonials/t5.jpg" src="assets/testimonials/t5.mp4"></video><button type="button" class="tplay" aria-label="Play: AI&#x27;s changed the game."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>AI's changed the game.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f2.jpg" src="assets/testimonials/f2.mp4"></video><button type="button" class="tplay" aria-label="Play: Him being in Treasury, he has more understanding of the economy."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>Him being in Treasury, he has more understanding of the economy.</q><span>Works in IT · Fri 23 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Works in IT</span><video preload="none" playsinline poster="assets/testimonials/f2.jpg" src="assets/testimonials/f2.mp4"></video><button type="button" class="tplay" aria-label="Play: Him being in Treasury, he has more understanding of the economy."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>Him being in Treasury, he has more understanding of the economy.</q><span class="tday">Fri 23 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t4.jpg" src="assets/testimonials/t4.mp4"></video><button type="button" class="tplay" aria-label="Play: It&#x27;s just like one of the podcasts, but I&#x27;m here live."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>It's just like one of the podcasts, but I'm here live.</q><span>Property investor · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Property investor</span><video preload="none" playsinline poster="assets/testimonials/t4.jpg" src="assets/testimonials/t4.mp4"></video><button type="button" class="tplay" aria-label="Play: It&#x27;s just like one of the podcasts, but I&#x27;m here live."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>It's just like one of the podcasts, but I'm here live.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t3.jpg" src="assets/testimonials/t3.mp4"></video><button type="button" class="tplay" aria-label="Play: You can&#x27;t follow the existing ways of doing things."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>You can't follow the existing ways of doing things.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Sydney attendee</span><video preload="none" playsinline poster="assets/testimonials/t3.jpg" src="assets/testimonials/t3.mp4"></video><button type="button" class="tplay" aria-label="Play: You can&#x27;t follow the existing ways of doing things."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>You can't follow the existing ways of doing things.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t2.jpg" src="assets/testimonials/t2.mp4"></video><button type="button" class="tplay" aria-label="Play: A little more receptive to the new way of thinking."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>A little more receptive to the new way of thinking.</q><span>Property investor · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Property investor</span><video preload="none" playsinline poster="assets/testimonials/t2.jpg" src="assets/testimonials/t2.mp4"></video><button type="button" class="tplay" aria-label="Play: A little more receptive to the new way of thinking."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>A little more receptive to the new way of thinking.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/f1.jpg" src="assets/testimonials/f1.mp4"></video><button type="button" class="tplay" aria-label="Play: Where exactly we should be buying in coming ten years."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>Where exactly we should be buying in coming ten years.</q><span>Sydney attendee · Fri 23 Oct</span></figcaption>
-</figure>
-<figure class="tcard">
-<div class="tvid"><video preload="none" playsinline poster="assets/testimonials/t1.jpg" src="assets/testimonials/t1.mp4"></video><button type="button" class="tplay" aria-label="Play: When you&#x27;ve got your investment lens on, you&#x27;ve got to have that at front of mind."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
-<figcaption><q>When you've got your investment lens on, you've got to have that at front of mind.</q><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+<div class="tvid"><span class="tind">Sydney attendee</span><video preload="none" playsinline poster="assets/testimonials/t1.jpg" src="assets/testimonials/t1.mp4"></video><button type="button" class="tplay" aria-label="Play: When you&#x27;ve got your investment lens on, you&#x27;ve got to have that at front of mind."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
+<figcaption><q>When you've got your investment lens on, you've got to have that at front of mind.</q><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 <figure class="tcard tquote">
-<div class="tquote-box"><q>Even with my own internal research, a lot of what we saw lined up pretty well.</q></div>
-<figcaption><span>Sydney attendee · Thu 22 Oct</span></figcaption>
+<div class="tquote-box"><span class="tind">Sydney attendee</span><q>Even with my own internal research, a lot of what we saw lined up pretty well.</q></div>
+<figcaption><span class="tday">Thu 22 Oct · Sydney</span></figcaption>
 </figure>
 </div>
+<div class="evstrip" aria-label="Photos from REDOM LIVE Sydney"><div class="evtrack"><img src="assets/event/e01.jpg" alt="" loading="lazy"><img src="assets/event/e02.jpg" alt="" loading="lazy"><img src="assets/event/e03.jpg" alt="" loading="lazy"><img src="assets/event/e04.jpg" alt="" loading="lazy"><img src="assets/event/e05.jpg" alt="" loading="lazy"><img src="assets/event/e06.jpg" alt="" loading="lazy"><img src="assets/event/e07.jpg" alt="" loading="lazy"><img src="assets/event/e08.jpg" alt="" loading="lazy"><img src="assets/event/e09.jpg" alt="" loading="lazy"><img src="assets/event/e10.jpg" alt="" loading="lazy"><img src="assets/event/e11.jpg" alt="" loading="lazy"><img src="assets/event/e12.jpg" alt="" loading="lazy"><img src="assets/event/e01.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e02.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e03.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e04.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e05.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e06.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e07.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e08.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e09.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e10.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e11.jpg" alt="" aria-hidden="true" loading="lazy"><img src="assets/event/e12.jpg" alt="" aria-hidden="true" loading="lazy"></div></div>
 </div>
 </section>
 
