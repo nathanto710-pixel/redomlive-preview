@@ -351,17 +351,16 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .newdates{background:#4D0032;color:#FFF3E9;padding:clamp(20px,2.4vw,28px) clamp(20px,2.6vw,32px);display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px}
 .newdates-k{font-family:'Anton','Impact',sans-serif;font-size:clamp(30px,3.4vw,46px);line-height:1;text-transform:uppercase;color:#FF7150}
 .newdates p{margin:0;flex:1 1 420px;font-size:19px;line-height:1.45}
-.sess-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
-.sess{background:#4D0032;color:#FFF3E9;padding:22px 22px 20px;display:flex;flex-direction:column;gap:6px;border-top:5px solid #FF7150}
-.sess-city{font-family:'Anton','Impact',sans-serif;font-size:clamp(30px,2.8vw,40px);line-height:1;text-transform:uppercase}
-.sess-city span{color:#FF7150}
-.sess-date{font-family:'Anton','Impact',sans-serif;font-size:24px;line-height:1.1;text-transform:uppercase;margin-top:8px}
-.sess-meta{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#EFDDE0}
-.sess-maybe{background:transparent;color:#4D0032;border:2px dashed #8C5578;border-top:5px solid #8C5578}
-.sess-maybe .sess-meta{color:#8C5578}
-.sess-tbc{align-self:flex-start;margin-top:8px;background:#F3E3D8;color:#4D0032;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;padding:4px 8px}
+.slist{list-style:none;margin:0;padding:0;border-top:3px solid #4D0032}
+.slist-row{display:grid;grid-template-columns:minmax(120px,170px) 1fr auto;align-items:baseline;gap:6px 24px;padding:16px 4px;border-bottom:1px solid #E5CFC2}
+.slist-date{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#C7411F}
+.slist-city{font-family:'Anton','Impact',sans-serif;font-size:clamp(26px,2.6vw,34px);line-height:1;text-transform:uppercase;color:#4D0032}
+.slist-city em{font-style:normal;color:#8C5578}
+.slist-time{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8C5578}
+.slist-tbc .slist-city,.slist-tbc .slist-date{opacity:.55}
+.slist-note{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8C5578}
+@media (max-width:600px){.slist-row{grid-template-columns:96px 1fr;padding:14px 2px}.slist-time{display:none}.slist-tbc .slist-time{display:block;grid-column:2}.slist-date{font-size:13px}}
 .past-row{display:flex;flex-wrap:wrap;gap:6px 22px;align-items:baseline;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:#8C5578}
-@media (max-width:600px){.sess-grid{grid-template-columns:1fr 1fr;gap:10px}.sess{padding:14px 14px 12px;gap:4px}.sess-city{font-size:24px}.sess-city span{display:block}.sess-date{font-size:17px;margin-top:4px}.sess-meta{font-size:10.5px;letter-spacing:.03em}.sess-tbc{font-size:10px}.newdates p{font-size:17px}}
 .past-k{font-family:'Anton','Impact',sans-serif;font-size:18px;letter-spacing:.04em;color:#4D0032}
 .past-row b{font-weight:500;color:#C7411F;margin-left:6px}
 .tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;scroll-behavior:smooth}.tgrid::-webkit-scrollbar{display:none}
@@ -677,38 +676,15 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <div class="newdates-k">By popular demand</div>
 <p>October's sessions in Sydney and Melbourne filled the room, and Sydney sold out. So we're running more before the end of the year, in more cities.</p>
 </div>
-<div class="sess-grid">
-<div class="sess">
-<div class="sess-city">Sydney<span> · Parramatta</span></div>
-<div class="sess-date">Thursday 26 November</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-</div>
-<div class="sess">
-<div class="sess-city">Newcastle</div>
-<div class="sess-date">Tuesday 1 December</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-</div>
-<div class="sess">
-<div class="sess-city">Sydney<span> · CBD</span></div>
-<div class="sess-date">Wednesday 2 December</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-</div>
-<div class="sess">
-<div class="sess-city">Brisbane</div>
-<div class="sess-date">Thursday 3 December</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-</div>
-<div class="sess">
-<div class="sess-city">Melbourne</div>
-<div class="sess-date">Tuesday 8 December</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-</div>
-<div class="sess sess-maybe">
-<div class="sess-city">Melbourne</div>
-<div class="sess-date">Wednesday 9 December</div>
-<div class="sess-meta">5.30pm to 8pm · Venue to be announced</div>
-<span class="sess-tbc">Date to be confirmed</span></div>
-</div>
+<ul class="slist">
+<li class="slist-row"><span class="slist-date">Thu 26 Nov</span><span class="slist-city">Sydney <em>Parramatta</em></span><span class="slist-time">5.30pm to 8pm</span></li>
+<li class="slist-row"><span class="slist-date">Tue 1 Dec</span><span class="slist-city">Newcastle</span><span class="slist-time">5.30pm to 8pm</span></li>
+<li class="slist-row"><span class="slist-date">Wed 2 Dec</span><span class="slist-city">Sydney <em>CBD</em></span><span class="slist-time">5.30pm to 8pm</span></li>
+<li class="slist-row"><span class="slist-date">Thu 3 Dec</span><span class="slist-city">Brisbane</span><span class="slist-time">5.30pm to 8pm</span></li>
+<li class="slist-row"><span class="slist-date">Tue 8 Dec</span><span class="slist-city">Melbourne</span><span class="slist-time">5.30pm to 8pm</span></li>
+<li class="slist-row slist-tbc"><span class="slist-date">Wed 9 Dec</span><span class="slist-city">Melbourne</span><span class="slist-time">To be confirmed</span></li>
+</ul>
+<div class="slist-note">All sessions 5.30pm to 8pm. Venues to be announced.</div>
 <div class="past-row"><span class="past-k">October</span><span>Sydney · 22 &amp; 23 Oct <b>Sold out</b></span><span>Melbourne · 29 &amp; 30 Oct <b>Done</b></span></div>
 
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 15px; letter-spacing: 0.1em; text-transform: uppercase; color: #8C5578; text-align: center">↓ Pick your session in the form below</div>
