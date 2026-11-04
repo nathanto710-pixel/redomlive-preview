@@ -337,7 +337,7 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .tvid::after{content:"";position:absolute;inset:auto 0 0 0;height:38%;background:linear-gradient(to top,rgba(51,0,31,.85),rgba(51,0,31,0));pointer-events:none}
 .tcard.playing .tvid::after,.tcard.playing .tind{display:none}
 .tplay{z-index:2}
-.tcard q{font-size:24px}
+.tcard q{font-size:19px}
 .tcard .tday{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#B0F6BB}
 .tquote-box{position:relative}
 .evstrip{display:flex;gap:12px;overflow:hidden;margin:0 calc(-1 * clamp(20px, 5vw, 80px));padding:0}
@@ -351,6 +351,16 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .eb-note{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:#B0F6BB;margin-top:-10px}
 .eb-banner{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;background:#FF7150;color:#4D0032;padding:14px 18px;font-size:18px;font-weight:600}
 .eb-banner span{font-family:'Anton','Impact',sans-serif;font-weight:400;font-size:24px;letter-spacing:.03em;text-transform:uppercase}
+.hero2{position:relative;overflow:hidden;background:#33001F;padding:clamp(48px,6vw,96px) clamp(20px,5vw,80px) clamp(44px,5vw,72px);text-align:center}
+.hero2-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 45%;opacity:.28;filter:grayscale(.2)}
+.hero2::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(51,0,31,.55) 0%,rgba(77,0,50,.75) 60%,#4D0032 100%)}
+.hero2-in{position:relative;z-index:1;max-width:1040px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:22px}
+.hero2-k{display:inline-block;background:rgba(255,113,80,.14);border:1px solid #FF7150;color:#FF7150;padding:7px 14px;font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+.hero2 h1{margin:0;font-family:'Archivo','Helvetica Neue',sans-serif;font-weight:700;font-size:clamp(34px,4.3vw,62px);line-height:1.12;letter-spacing:-.01em;color:#FFF3E9}
+.hero2-sub{margin:0;max-width:880px;font-size:clamp(18px,1.6vw,22px);line-height:1.5;color:#EFDDE0}
+.hero2-sub b{color:#FFF3E9;font-weight:700}
+.hero2-cta{display:flex;flex-direction:column;align-items:center;gap:10px}
+.hero2 .eb-note{margin-top:0}
 .slist{list-style:none;margin:0;padding:0;border-top:3px solid #4D0032}
 .slist-row{display:grid;grid-template-columns:minmax(120px,170px) 1fr auto;align-items:baseline;gap:6px 24px;padding:16px 4px;border-bottom:1px solid #E5CFC2}
 .slist-date{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:15px;letter-spacing:.08em;text-transform:uppercase;color:#C7411F}
@@ -364,8 +374,8 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .past-k{font-family:'Anton','Impact',sans-serif;font-size:18px;letter-spacing:.04em;color:#4D0032}
 .past-row b{font-weight:500;color:#C7411F}
 .past-item{white-space:nowrap}
-.tgrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;scrollbar-width:none;scroll-behavior:smooth}.tgrid::-webkit-scrollbar{display:none}
-.tcard{flex:0 0 calc((100% - 60px) / 4.25);scroll-snap-align:start}
+.tgrid{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;grid-auto-columns:calc((100% - 64px) / 5);gap:28px 16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;align-items:start}.tgrid::-webkit-scrollbar{display:none}
+.tcard{scroll-snap-align:start}
 .tnav{display:flex;gap:10px}.tnav button{width:48px;height:48px;border-radius:50%;border:2px solid #FF7150;background:transparent;color:#FF7150;font-size:22px;line-height:1;cursor:pointer}.tnav button:hover{background:#FF7150;color:#4D0032}
 .tcard{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
 .tvid{position:relative;aspect-ratio:9/16;background:#33001F;overflow:hidden}
@@ -378,8 +388,8 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .tcard figcaption span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#D8B9C9}
 .tquote-box{aspect-ratio:9/16;background:#6E0048;border:2px solid #FF7150;display:flex;align-items:center;padding:24px;box-sizing:border-box}
 .tquote-box q{font-size:30px;color:#FFF3E9}
-@media (max-width:1000px){.tcard{flex-basis:calc((100% - 40px) / 3.2)}}
-@media (max-width:760px){.tstats{flex-wrap:nowrap;gap:14px}.tstats div{flex-direction:column;gap:4px;flex:1 1 0}.tstats b{font-size:40px}.tstats span{font-size:11px}.tgrid{gap:16px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard{flex-basis:72%}.tnav{display:none}}
+@media (max-width:1000px){.tgrid{grid-auto-columns:calc((100% - 32px) / 3.2)}}
+@media (max-width:760px){.tgrid{grid-auto-columns:calc((100% - 52px) / 2.1);gap:20px 12px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard q{font-size:16px}.tind{font-size:12px;padding:5px 7px 4px;left:6px;top:6px}.tplay{width:40px;height:40px;left:8px;bottom:8px}.tcard .tday{font-size:10px}.tnav{display:none}}
 .vsl:hover .vsl-bar{background:#FF8F74!important}.vsl:focus-visible{outline:3px solid #FF7150;outline-offset:4px}
 </style>
 </head>
@@ -393,17 +403,16 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 </div>
 </header>
 
-<section style="padding: clamp(40px, 4.4vw, 60px) clamp(20px, 5vw, 80px) clamp(48px, 5vw, 68px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 40px 64px; align-items: center">
-<div style="flex: 1.4 1 480px; min-width: 0; display: flex; flex-direction: column; gap: 24px">
-<div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #FF7150">By popular demand · New dates 26 Nov to 8 Dec 2026</div>
-<h1 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(48px, 4.4vw, 72px); line-height: 0.97; letter-spacing: 0.005em; text-transform: uppercase">Your job is gone.<br><span style="color: #FF7150">Your suburb is next.</span></h1>
-<p style="margin: 0; font-size: clamp(20px, 1.8vw, 24px); line-height: 1.4; max-width: 620px">2026 is the year property investing reset. 150 minutes. Fifty seats. The 20 markets I'd buy in now.</p>
-<a id="hero-cta" href="#register" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 64px; padding: 0 36px; background: #FF7150; color: #4D0032; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; letter-spacing: 0.03em; text-transform: uppercase">Early bird · $49</a>
-<div class="eb-note">Early bird price. Rises to $99 soon.</div>
-</div>
+<section class="hero2">
+<img class="hero2-bg" src="assets/event/e13.jpg" alt="" aria-hidden="true">
+<div class="hero2-in">
+<div class="hero2-k">4 sold-out sessions in Sydney &amp; Melbourne · New dates 26 Nov to 8 Dec</div>
+<h1>How Smart Property Investors Are Finding Their Next Suburb Before The Jobs And The Money Get There</h1>
+<p class="hero2-sub">In <b>150 minutes in the room</b>, we map <b>where Australia's jobs, people and money are moving next</b>, show you <b>the 20 markets we'd buy in now</b>, and help you <b>score the suburbs you own or are eyeing</b>, so you're not running a 2019 playbook in a 2030 economy.</p>
+<div class="hero2-cta"><a id="hero-cta" href="#register" style="display: inline-flex; align-items: center; min-height: 64px; padding: 0 36px; background: #FF7150; color: #4D0032; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; letter-spacing: 0.03em; text-transform: uppercase">Early bird · $49</a>
+<div class="eb-note">Early bird price. Rises to $99 soon.</div></div>
 <!-- VSL: lite YouTube embed. Shows the video's own thumbnail; the player only loads on click. -->
-<div style="flex: 1 1 400px; max-width: 540px; min-width: 0; position: relative">
+<div style="width: 100%; max-width: 720px; margin: 8px auto 0; position: relative">
 <button type="button" class="vsl" data-id="0E2edqijs68" aria-label="Play video: REDOM LIVE, where the money flows next in Australia" style="position: relative; display: flex; flex-direction: column; width: 100%; padding: 0; border: 0; background: #33001F; cursor: pointer; overflow: hidden; text-align: left">
 <img src="https://i.ytimg.com/vi/0E2edqijs68/maxresdefault.jpg" alt="" style="width: 100%; aspect-ratio: 16 / 9; object-fit: cover; display: block">
 <span class="vsl-bar" style="display: flex; align-items: center; justify-content: center; gap: 12px; padding: 14px 16px; background: #FF7150; color: #4D0032; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(18px, 1.7vw, 22px); letter-spacing: 0.03em; text-transform: uppercase"><svg viewBox="0 0 24 24" aria-hidden="true" style="width: 20px; height: 20px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg>Watch: where the money flows next</span>
@@ -426,169 +435,7 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 </div>
 </section>
 
-<section id="problem" class="problem">
-<div class="wrap">
-<h2 class="problem-h">You're being sold a 2019 strategy for a <span>2030 economy.</span></h2>
-<div class="problem-old"><s>Buy "quality".</s> <s>Assume 7% a year.</s> <s>Wait.</s></div>
-<div class="problem-body">
-<p>That advice was built for a world that's gone.</p>
-<p>Jobs are moving. Money is moving. Whole markets are about to end up on the wrong side of it.</p>
-<p class="problem-cost">Buy in the wrong one and it can cost you hundreds of thousands.</p>
-</div>
-</div>
-</section>
-
-<section id="solution" class="solution">
-<div class="wrap">
-<div class="sol-cards">
-<div class="sol-card"><div class="sol-name">The Money Map</div><p>Shows you where the jobs, people and property wealth go next.</p></div>
-<div class="sol-card"><div class="sol-name">The RESET method</div><p>Turns that into what to buy, where, and when.</p></div>
-</div>
-<div class="sol-lead">Here's the difference...</div>
-<div class="ovn">
-<div class="ovn-col ovn-old">
-<div class="ovn-kicker">Looks backwards</div>
-<div class="ovn-title">The old way</div>
-<svg class="ovn-chart" viewBox="0 0 480 260" aria-hidden="true"><path d="M10 10V230H470" fill="none" stroke="#7D3563" stroke-width="2"/><path d="M12 205C70 200 90 180 140 172S210 160 250 120 300 100 330 96" fill="none" stroke="#D8B9C9" stroke-width="3"/><circle cx="330" cy="96" r="7" fill="#D8B9C9"/><path d="M330 96L470 30" fill="none" stroke="#D8B9C9" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/><path d="M330 104V230" stroke="#D8B9C9" stroke-width="1.5" stroke-dasharray="3 5"/><text x="342" y="150" fill="#D8B9C9" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1.5">“IT ALWAYS GOES UP”</text><text x="330" y="254" fill="#A8789A" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">TODAY</text></svg>
-<ul><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>7% growth. Forever.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Buy “quality”. Wait.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Follow the herd.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Same plan as 2019.</span></li></ul>
-</div>
-<div class="ovn-vs" aria-hidden="true">VS</div>
-<div class="ovn-col ovn-new">
-<div class="ovn-kicker">Looks forwards</div>
-<div class="ovn-title">The new way</div>
-<svg class="ovn-chart" viewBox="0 0 480 260" aria-hidden="true"><text x="440" y="24" fill="#4D0032" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">WHERE THE MONEY IS GOING</text><g fill="none" stroke="#4D0032"><path d="M10 185C120 186 190 180 250 132S360 64 440 62" stroke-width="1" opacity=".35"/><path d="M10 195C120 196 190 190 250 140S360 66 440 62" stroke-width="1" opacity=".55"/><path d="M10 215C120 214 190 210 250 160S360 74 440 62" stroke-width="1" opacity=".45"/><path d="M10 225C120 224 190 220 250 170S360 78 440 62" stroke-width="1" opacity=".35"/><path d="M10 205C120 205 190 200 250 150S360 70 440 62" stroke-width="3"/><circle cx="440" cy="62" r="18" stroke-width="1" opacity=".5"/><circle cx="440" cy="62" r="11" stroke-width="1" opacity=".7"/></g><circle cx="440" cy="62" r="6" fill="#4D0032"/><circle cx="262" cy="139" r="6" fill="#FFF3E9" stroke="#4D0032" stroke-width="2"/></svg>
-<ul><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Follow the money.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Buy where jobs are going.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Get in before the herd.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>New map. New world.</span></li></ul>
-</div>
-</div>
-<div class="ovn-foot">The world changed. <span>The playbook didn't.</span></div>
-</div>
-</section>
-
-<section id="plays" style="background: #FFF3E9; color: #6E0048; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 36px 56px; align-items: center">
-<div style="flex: 1.25 1 420px; min-width: 0">
-<div style="position: relative; width: 100%; aspect-ratio: 1000 / 901; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(11px, 1.5vw, 20px); letter-spacing: 0.06em; line-height: 1; text-transform: uppercase">
-<img src="assets/au-map.svg" alt="Map of Australia with two of the twenty markets named and eighteen hidden" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block">
-<button type="button" class="state-lock" data-align="left" style="left: 25%; top: 46%" aria-expanded="false" aria-label="Western Australia: 1 hidden market. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">1</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">WA · 1 hidden market</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<button type="button" class="state-lock" data-align="center" style="left: 47%; top: 27%" aria-expanded="false" aria-label="Northern Territory: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">NT · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<button type="button" class="state-lock" data-align="right" style="left: 72%; top: 33%" aria-expanded="false" aria-label="Queensland: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">QLD · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<button type="button" class="state-lock" data-align="right" style="left: 80%; top: 62%" aria-expanded="false" aria-label="New South Wales: 8 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">8</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">NSW · 8 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<button type="button" class="state-lock" data-align="center" style="left: 63%; top: 75%" aria-expanded="false" aria-label="Victoria: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">VIC · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<button type="button" class="state-lock" data-align="right" style="left: 77%; top: 93%" aria-expanded="false" aria-label="Tasmania: 3 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">3</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">TAS · 3 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
-<div style="position: absolute; left: 74%; top: 81.2%; width: 0.9em; height: 0.9em; transform: translate(-50%, -50%); border-radius: 50%; background: #B0F6BB; border: 2px solid #4D0032; box-sizing: border-box"></div>
-<div style="position: absolute; left: 72.2%; top: 82.8%; width: 0.9em; height: 0.9em; transform: translate(-50%, -50%); border-radius: 50%; background: #B0F6BB; border: 2px solid #4D0032; box-sizing: border-box"></div>
-<div style="position: absolute; right: 35%; top: 84.6%; background: #B0F6BB; color: #4D0032; padding: 0.3em 0.5em; white-space: nowrap; border: 2px solid #4D0032">01 · Melbourne inner ring</div>
-<div style="position: absolute; right: 35%; top: 91.4%; background: #B0F6BB; color: #4D0032; padding: 0.3em 0.5em; white-space: nowrap; border: 2px solid #4D0032">02 · Geelong</div>
-</div>
-<div class="lock-hint"><span class="hint-desktop">Hover a lock</span><span class="hint-touch">Tap a lock</span> · 18 markets hidden</div>
-</div>
-<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
-<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(46px, 5.2vw, 72px); line-height: 0.96; text-transform: uppercase">The top 20 markets. Revealed.</h2>
-<div style="font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.05; text-transform: uppercase; color: #C7411F">My base case: 50%+ in five years.</div>
-<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Anton', 'Impact', sans-serif; font-size: 20px; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.1">
-<div style="background: #B0F6BB; color: #4D0032; padding: 12px 16px; border: 2px solid #4D0032">01 · Melbourne inner-ring apartments</div>
-<div style="background: #B0F6BB; color: #4D0032; padding: 12px 16px; border: 2px solid #4D0032">02 · Geelong houses</div>
-<div style="background: #F3E3D8; color: #6E0048; padding: 12px 16px; border: 2px dashed #6E0048">03 to 20 · ???? · Only in the room</div>
-</div>
-<a href="#register" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 60px; padding: 0 32px; background: #6E0048; color: #FFF3E9; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; letter-spacing: 0.03em; text-transform: uppercase">See all 20 · Early bird $49</a>
-</div>
-</div>
-</section>
-
-<section style="background: #F3E3D8; color: #4D0032; border-top: 1px solid #E5CFC2; padding: 30px clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px 56px; align-items: center">
-<h2 style="margin: 0; flex: 1 1 360px; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 4.8vw, 66px); line-height: 0.98; text-transform: uppercase">Bring your postcode.</h2>
-<p style="margin: 0; flex: 1 1 380px; min-width: 0; font-size: 22px; line-height: 1.35; font-weight: 500">Walk out with your own area's score.</p>
-</div>
-</section>
-
-
-<section id="calls" style="background: #FFF3E9; color: #6E0048; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 36px">
-<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 4.8vw, 66px); line-height: 0.98; text-transform: uppercase">Nine forces run the next five years.</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 0 40px">
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">Peak employment</div><div style="font-size: 18px; line-height: 1.35">4.6% unemployment is the lowest you'll see for the rest of your life.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The great halving</div><div style="font-size: 18px; line-height: 1.35">Take what your city grew in the last five years. Halve it.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The credit machine</div><div style="font-size: 18px; line-height: 1.35">You can't add a second income three times.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The AI build-out</div><div style="font-size: 18px; line-height: 1.35">We were the quarry for China's building boom. We can be the power station for the world's AI boom.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The industries that win</div><div style="font-size: 18px; line-height: 1.35">Dig, build, generate, nurse, teach, host.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">Population</div><div style="font-size: 18px; line-height: 1.35">Eleven million more people is not an investment thesis.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The lifestyle nation</div><div style="font-size: 18px; line-height: 1.35">Australia is full of beautiful places that nobody priced for beauty.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">The African era</div><div style="font-size: 18px; line-height: 1.35">Nearly half the young people on the planet will be African.</div></div>
-<div style="flex: 1 1 320px; min-width: 0; box-sizing: border-box; padding: 14px 0 18px; border-top: 3px solid #6E0048; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase; color: #C7411F">Government</div><div style="font-size: 18px; line-height: 1.35">Less Canberra, more country.</div></div>
-</div>
-</div>
-</section>
-
-<section id="industries" style="padding: clamp(44px, 4.6vw, 64px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
-<div style="display: flex; flex-wrap: wrap; align-items: flex-end; gap: 12px 48px">
-<h2 style="margin: 0; flex: 2 1 520px; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 5.4vw, 76px); line-height: 0.98; text-transform: uppercase">The industries that win. <span style="color: #FF7150">This will determine where money goes.</span></h2>
-<p style="margin: 0; flex: 1 1 260px; font-size: 20px; color: #EFDDE0">25 industries, sorted. Here are five.</p>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-<div style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; background: #5E1A47; color: #FFF3E9; border-top: 3px solid #B0F6BB; padding: 16px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; line-height: 1.05; text-transform: uppercase">Health and aged care</div><div style="font-size: 16px; line-height: 1.35">You can't automate a nurse.</div></div>
-<div style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; background: #5E1A47; color: #FFF3E9; border-top: 3px solid #B0F6BB; padding: 16px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; line-height: 1.05; text-transform: uppercase">Construction</div><div style="font-size: 16px; line-height: 1.35">Robots aren't pouring concrete.</div></div>
-<div style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; background: #5E1A47; color: #FFF3E9; border-top: 3px solid #B0F6BB; padding: 16px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; line-height: 1.05; text-transform: uppercase">Energy and water</div><div style="font-size: 16px; line-height: 1.35">Data centres run on power and water.</div></div>
-<div style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; background: #5E1A47; color: #FFF3E9; border-top: 3px solid #B0F6BB; padding: 16px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; line-height: 1.05; text-transform: uppercase">Metals mining</div><div style="font-size: 16px; line-height: 1.35">Every data centre and every new city is built from it.</div></div>
-<div style="flex: 1 1 200px; min-width: 0; box-sizing: border-box; background: #5E1A47; color: #FFF3E9; border-top: 3px solid #B0F6BB; padding: 16px; display: flex; flex-direction: column; gap: 6px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 26px; line-height: 1.05; text-transform: uppercase">Tourism</div><div style="font-size: 16px; line-height: 1.35">More time, more travel.</div></div>
-</div>
-<div class="redact-grid">
-<div class="redact" aria-label="Hidden industry"><i style="width: 78%"></i><i style="width: 52%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 64%"></i><i style="width: 40%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 86%"></i><i style="width: 58%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 70%"></i><i style="width: 46%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 58%"></i><i style="width: 34%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 82%"></i><i style="width: 50%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 66%"></i><i style="width: 44%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 90%"></i><i style="width: 60%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 72%"></i><i style="width: 38%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 60%"></i><i style="width: 48%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 84%"></i><i style="width: 54%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 68%"></i><i style="width: 42%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 76%"></i><i style="width: 56%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 62%"></i><i style="width: 36%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 88%"></i><i style="width: 50%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 74%"></i><i style="width: 46%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 56%"></i><i style="width: 40%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 80%"></i><i style="width: 58%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 70%"></i><i style="width: 34%"></i></div>
-<div class="redact" aria-label="Hidden industry"><i style="width: 64%"></i><i style="width: 52%"></i></div>
-</div>
-<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 48px">
-<div style="font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(26px, 3vw, 40px); line-height: 1.04; text-transform: uppercase">11 win. 11 lose. 3 sit still. <span style="color: #B0F6BB">Find out in the room.</span></div>
-<a href="#register" style="display: inline-flex; align-items: center; min-height: 60px; padding: 0 32px; background: #FF7150; color: #4D0032; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; letter-spacing: 0.03em; text-transform: uppercase">Early bird · $49</a>
-</div>
-</div>
-</section>
-
-<section id="about" style="background: #6E0048; color: #FFF3E9; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
-<div style="display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: center">
-<div class="about-photos" style="flex: 1.3 1 460px; min-width: 0; display: flex; gap: 14px">
-<!-- On-stage photos, all 4:5. Previous: stage-c.jpg, harbour.jpg, awards.jpg -->
-<img src="assets/about-1.jpg" alt="Redom Syed speaking on stage with a microphone" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
-<img src="assets/about-2.jpg" alt="Redom Syed speaking at a podium" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
-<img src="assets/about-3.jpg" alt="Redom Syed presenting to an audience" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
-</div>
-<div style="flex: 1.2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
-<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(38px, 4.4vw, 60px); line-height: 1; text-transform: uppercase">An economist who quit Treasury to write home loans.</h2>
-<p style="margin: 0; font-size: 19px">I'm Redom Syed. I began my career as a trained economist at the Federal Treasury, working through exactly how the country runs and thinking like the powers that run the country. That thinking has framed everything inside the Money Map.</p>
-<p style="margin: 0; font-size: 19px">Today, I run Flint Group, one of Australia's largest and fastest growing property groups. In 2025, I was recognised as FBAA Broker of the Year. I'm also an active property investor, with an active $100m property pipeline across Australia.</p>
-</div>
-</div>
-<div style="display: flex; flex-wrap: wrap; gap: 0 40px">
-<div style="flex: 1 1 300px; min-width: 0; padding: 14px 0; border-top: 3px solid #FFF3E9; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase">2025 · Melbourne units</div><div style="font-size: 17px">Said buy. They've beaten houses over the past year.</div></div>
-<div style="flex: 1 1 300px; min-width: 0; padding: 14px 0; border-top: 3px solid #FFF3E9; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase">2024 · Darwin</div><div style="font-size: 17px">Called it. Now the only capital still rising.</div></div>
-</div>
-</div>
-</section>
-
-<section style="padding: clamp(48px, 5.4vw, 76px) clamp(20px, 5vw, 80px)">
-<div style="max-width: 1200px; margin: 0 auto; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; text-transform: uppercase">Australia is going to get rich. <span style="color: #FF7150">Most Australians are going to get poorer.</span></div>
-</section>
-
-<!-- Testimonials: short answers from Sydney attendee interviews (no names, role/industry only). Videos load only on play. -->
+<!-- Testimonials: attendee interviews (no names, role/industry only). Videos load only on play. -->
 <section id="testimonials" style="background: #4D0032; color: #FFF3E9; padding: clamp(44px, 4.6vw, 64px) clamp(20px, 5vw, 80px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px">
 <div style="display: flex; flex-direction: column; gap: 10px">
@@ -658,6 +505,7 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 </div>
 </section>
 
+
 <!-- Quotes: verbatim lines from attendee interviews, no names -->
 <section id="quotes" style="background: #FFF3E9; color: #4D0032; padding: clamp(32px, 3.4vw, 48px) clamp(20px, 5vw, 80px)">
 <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px">
@@ -671,6 +519,93 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <figure class="qcard"><q>Just learning a lot and yeah, it's been really productive.</q><figcaption>Property investor</figcaption></figure>
 </div>
 </div>
+</section>
+
+
+<section id="solution" class="solution">
+<div class="wrap">
+<div class="ovn">
+<div class="ovn-col ovn-old">
+<div class="ovn-kicker">Looks backwards</div>
+<div class="ovn-title">The old way</div>
+<svg class="ovn-chart" viewBox="0 0 480 260" aria-hidden="true"><path d="M10 10V230H470" fill="none" stroke="#7D3563" stroke-width="2"/><path d="M12 205C70 200 90 180 140 172S210 160 250 120 300 100 330 96" fill="none" stroke="#D8B9C9" stroke-width="3"/><circle cx="330" cy="96" r="7" fill="#D8B9C9"/><path d="M330 96L470 30" fill="none" stroke="#D8B9C9" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/><path d="M330 104V230" stroke="#D8B9C9" stroke-width="1.5" stroke-dasharray="3 5"/><text x="342" y="150" fill="#D8B9C9" font-family="IBM Plex Mono, monospace" font-size="12" letter-spacing="1.5">“IT ALWAYS GOES UP”</text><text x="330" y="254" fill="#A8789A" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">TODAY</text></svg>
+<ul><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>7% growth. Forever.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Buy “quality”. Wait.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Follow the herd.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span>Same plan as 2019.</span></li></ul>
+</div>
+<div class="ovn-vs" aria-hidden="true">VS</div>
+<div class="ovn-col ovn-new">
+<div class="ovn-kicker">Looks forwards</div>
+<div class="ovn-title">The new way</div>
+<svg class="ovn-chart" viewBox="0 0 480 260" aria-hidden="true"><text x="440" y="24" fill="#4D0032" text-anchor="end" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="2">WHERE THE MONEY IS GOING</text><g fill="none" stroke="#4D0032"><path d="M10 185C120 186 190 180 250 132S360 64 440 62" stroke-width="1" opacity=".35"/><path d="M10 195C120 196 190 190 250 140S360 66 440 62" stroke-width="1" opacity=".55"/><path d="M10 215C120 214 190 210 250 160S360 74 440 62" stroke-width="1" opacity=".45"/><path d="M10 225C120 224 190 220 250 170S360 78 440 62" stroke-width="1" opacity=".35"/><path d="M10 205C120 205 190 200 250 150S360 70 440 62" stroke-width="3"/><circle cx="440" cy="62" r="18" stroke-width="1" opacity=".5"/><circle cx="440" cy="62" r="11" stroke-width="1" opacity=".7"/></g><circle cx="440" cy="62" r="6" fill="#4D0032"/><circle cx="262" cy="139" r="6" fill="#FFF3E9" stroke="#4D0032" stroke-width="2"/></svg>
+<ul><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Follow the money.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Buy where jobs are going.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>Get in before the herd.</span></li><li><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3.2 3.2L13 4.8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="square"/></svg><span>New map. New world.</span></li></ul>
+</div>
+</div>
+<div class="ovn-foot">The world changed. <span>The playbook didn't.</span></div>
+</div>
+</section>
+
+<section id="plays" style="background: #FFF3E9; color: #6E0048; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 36px 56px; align-items: center">
+<div style="flex: 1.25 1 420px; min-width: 0">
+<div style="position: relative; width: 100%; aspect-ratio: 1000 / 901; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(11px, 1.5vw, 20px); letter-spacing: 0.06em; line-height: 1; text-transform: uppercase">
+<img src="assets/au-map.svg" alt="Map of Australia with two of the twenty markets named and eighteen hidden" style="position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block">
+<button type="button" class="state-lock" data-align="left" style="left: 25%; top: 46%" aria-expanded="false" aria-label="Western Australia: 1 hidden market. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">1</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">WA · 1 hidden market</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<button type="button" class="state-lock" data-align="center" style="left: 47%; top: 27%" aria-expanded="false" aria-label="Northern Territory: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">NT · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<button type="button" class="state-lock" data-align="right" style="left: 72%; top: 33%" aria-expanded="false" aria-label="Queensland: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">QLD · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<button type="button" class="state-lock" data-align="right" style="left: 80%; top: 62%" aria-expanded="false" aria-label="New South Wales: 8 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">8</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">NSW · 8 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<button type="button" class="state-lock" data-align="center" style="left: 63%; top: 75%" aria-expanded="false" aria-label="Victoria: 2 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">2</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">VIC · 2 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<button type="button" class="state-lock" data-align="right" style="left: 77%; top: 93%" aria-expanded="false" aria-label="Tasmania: 3 hidden markets. Join the workshop to unlock these."><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg><span class="state-count" aria-hidden="true">3</span><span class="state-pop" aria-hidden="true"><span class="state-pop-head">TAS · 3 hidden markets</span><span class="state-pop-locks"><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span><span class="mini-lock"><svg viewBox="0 0 12 12" aria-hidden="true"><rect x="2.5" y="5.5" width="7" height="5" rx="1" fill="currentColor"/><path d="M4 5.5V4a2 2 0 0 1 4 0v1.5" fill="none" stroke="currentColor" stroke-width="1.4"/></svg></span></span><span class="state-pop-tag">Join the workshop to unlock these.</span></span></button>
+<div style="position: absolute; left: 74%; top: 81.2%; width: 0.9em; height: 0.9em; transform: translate(-50%, -50%); border-radius: 50%; background: #B0F6BB; border: 2px solid #4D0032; box-sizing: border-box"></div>
+<div style="position: absolute; left: 72.2%; top: 82.8%; width: 0.9em; height: 0.9em; transform: translate(-50%, -50%); border-radius: 50%; background: #B0F6BB; border: 2px solid #4D0032; box-sizing: border-box"></div>
+<div style="position: absolute; right: 35%; top: 84.6%; background: #B0F6BB; color: #4D0032; padding: 0.3em 0.5em; white-space: nowrap; border: 2px solid #4D0032">01 · Melbourne inner ring</div>
+<div style="position: absolute; right: 35%; top: 91.4%; background: #B0F6BB; color: #4D0032; padding: 0.3em 0.5em; white-space: nowrap; border: 2px solid #4D0032">02 · Geelong</div>
+</div>
+<div class="lock-hint"><span class="hint-desktop">Hover a lock</span><span class="hint-touch">Tap a lock</span> · 18 markets hidden</div>
+</div>
+<div style="flex: 1 1 380px; min-width: 0; display: flex; flex-direction: column; gap: 18px">
+<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(46px, 5.2vw, 72px); line-height: 0.96; text-transform: uppercase">The top 20 markets. Revealed.</h2>
+<div style="font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(24px, 2.6vw, 34px); line-height: 1.05; text-transform: uppercase; color: #C7411F">My base case: 50%+ in five years.</div>
+<div style="display: flex; flex-direction: column; gap: 8px; font-family: 'Anton', 'Impact', sans-serif; font-size: 20px; letter-spacing: 0.02em; text-transform: uppercase; line-height: 1.1">
+<div style="background: #B0F6BB; color: #4D0032; padding: 12px 16px; border: 2px solid #4D0032">01 · Melbourne inner-ring apartments</div>
+<div style="background: #B0F6BB; color: #4D0032; padding: 12px 16px; border: 2px solid #4D0032">02 · Geelong houses</div>
+<div style="background: #F3E3D8; color: #6E0048; padding: 12px 16px; border: 2px dashed #6E0048">03 to 20 · ???? · Only in the room</div>
+</div>
+<a href="#register" style="align-self: flex-start; display: inline-flex; align-items: center; min-height: 60px; padding: 0 32px; background: #6E0048; color: #FFF3E9; text-decoration: none; font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; letter-spacing: 0.03em; text-transform: uppercase">See all 20 · Early bird $49</a>
+</div>
+</div>
+</section>
+
+<section style="background: #F3E3D8; color: #4D0032; border-top: 1px solid #E5CFC2; padding: 30px clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 12px 56px; align-items: center">
+<h2 style="margin: 0; flex: 1 1 360px; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 4.8vw, 66px); line-height: 0.98; text-transform: uppercase">Bring your postcode.</h2>
+<p style="margin: 0; flex: 1 1 380px; min-width: 0; font-size: 22px; line-height: 1.35; font-weight: 500">Walk out with your own area's score.</p>
+</div>
+</section>
+
+
+<section id="about" style="background: #6E0048; color: #FFF3E9; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px">
+<div style="display: flex; flex-wrap: wrap; gap: 28px 56px; align-items: center">
+<div class="about-photos" style="flex: 1.3 1 460px; min-width: 0; display: flex; gap: 14px">
+<!-- On-stage photos, all 4:5. Previous: stage-c.jpg, harbour.jpg, awards.jpg -->
+<img src="assets/about-1.jpg" alt="Redom Syed speaking on stage with a microphone" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+<img src="assets/about-2.jpg" alt="Redom Syed speaking at a podium" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+<img src="assets/about-3.jpg" alt="Redom Syed presenting to an audience" style="flex: 1 1 0; min-width: 0; width: 33%; aspect-ratio: 4 / 5; object-fit: cover; display: block">
+</div>
+<div style="flex: 1.2 1 420px; min-width: 0; display: flex; flex-direction: column; gap: 16px">
+<h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(38px, 4.4vw, 60px); line-height: 1; text-transform: uppercase">An economist who quit Treasury to write home loans.</h2>
+<p style="margin: 0; font-size: 19px">I'm Redom Syed. I began my career as a trained economist at the Federal Treasury, working through exactly how the country runs and thinking like the powers that run the country. That thinking has framed everything inside the Money Map.</p>
+<p style="margin: 0; font-size: 19px">Today, I run Flint Group, one of Australia's largest and fastest growing property groups. In 2025, I was recognised as FBAA Broker of the Year. I'm also an active property investor, with an active $100m property pipeline across Australia.</p>
+</div>
+</div>
+<div style="display: flex; flex-wrap: wrap; gap: 0 40px">
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px 0; border-top: 3px solid #FFF3E9; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase">2025 · Melbourne units</div><div style="font-size: 17px">Said buy. They've beaten houses over the past year.</div></div>
+<div style="flex: 1 1 300px; min-width: 0; padding: 14px 0; border-top: 3px solid #FFF3E9; display: flex; flex-direction: column; gap: 4px"><div style="font-family: 'Anton', 'Impact', sans-serif; font-size: 24px; line-height: 1.05; text-transform: uppercase">2024 · Darwin</div><div style="font-size: 17px">Called it. Now the only capital still rising.</div></div>
+</div>
+</div>
+</section>
+
+<section style="padding: clamp(48px, 5.4vw, 76px) clamp(20px, 5vw, 80px)">
+<div style="max-width: 1200px; margin: 0 auto; font-family: 'Anton', 'Impact', sans-serif; font-size: clamp(40px, 5.6vw, 80px); line-height: 0.98; text-transform: uppercase">Australia is going to get rich. <span style="color: #FF7150">Most Australians are going to get poorer.</span></div>
 </section>
 
 <section id="tickets" style="background: #FFF3E9; color: #4D0032; padding: clamp(44px, 4.6vw, 60px) clamp(20px, 5vw, 80px)">
