@@ -374,7 +374,8 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .past-k{font-family:'Anton','Impact',sans-serif;font-size:18px;letter-spacing:.04em;color:#4D0032}
 .past-row b{font-weight:500;color:#C7411F}
 .past-item{white-space:nowrap}
-.tgrid{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;grid-auto-columns:calc((100% - 64px) / 5);gap:28px 16px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;scroll-behavior:smooth;align-items:start}.tgrid::-webkit-scrollbar{display:none}
+.tgrid{display:flex;flex-wrap:wrap;justify-content:center;align-items:flex-start;gap:28px 16px}
+.tgrid>.tcard{flex:0 0 calc((100% - 64px) / 5)}.tgrid::-webkit-scrollbar{display:none}
 .tcard{scroll-snap-align:start}
 .tnav{display:flex;gap:10px}.tnav button{width:48px;height:48px;border-radius:50%;border:2px solid #FF7150;background:transparent;color:#FF7150;font-size:22px;line-height:1;cursor:pointer}.tnav button:hover{background:#FF7150;color:#4D0032}
 .tcard{margin:0;display:flex;flex-direction:column;gap:12px;min-width:0}
@@ -388,8 +389,8 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 .tcard figcaption span{font-family:'IBM Plex Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#D8B9C9}
 .tquote-box{aspect-ratio:9/16;background:#6E0048;border:2px solid #FF7150;display:flex;align-items:center;padding:24px;box-sizing:border-box}
 .tquote-box q{font-size:30px;color:#FFF3E9}
-@media (max-width:1000px){.tgrid{grid-auto-columns:calc((100% - 32px) / 3.2)}}
-@media (max-width:760px){.tgrid{grid-auto-columns:calc((100% - 52px) / 2.1);gap:20px 12px;margin:0 -20px;padding:0 20px 8px;scroll-padding:0 20px}.tcard q{font-size:16px}.tind{font-size:12px;padding:5px 7px 4px;left:6px;top:6px}.tplay{width:40px;height:40px;left:8px;bottom:8px}.tcard .tday{font-size:10px}.tnav{display:none}}
+@media (max-width:1000px){.tgrid>.tcard{flex-basis:calc((100% - 32px) / 3)}}
+@media (max-width:760px){.tgrid{gap:22px 12px}.tgrid>.tcard{flex-basis:calc((100% - 12px) / 2)}.tcard q{font-size:16px}.tind{font-size:12px;padding:5px 7px 4px;left:6px;top:6px}.tplay{width:40px;height:40px;left:8px;bottom:8px}.tcard .tday{font-size:10px}.tnav{display:none}}
 .vsl:hover .vsl-bar{background:#FF8F74!important}.vsl:focus-visible{outline:3px solid #FF7150;outline-offset:4px}
 </style>
 </head>
@@ -442,7 +443,6 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 <div style="font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px; letter-spacing: 0.12em; text-transform: uppercase; color: #B0F6BB">REDOM LIVE · Real attendees</div>
 <h2 style="margin: 0; font-family: 'Anton', 'Impact', sans-serif; font-weight: 400; font-size: clamp(40px, 5vw, 70px); line-height: 0.98; text-transform: uppercase">What the room <span style="color: #FF7150">said.</span></h2>
 </div>
-<div class="tnav" style="align-self: flex-end; margin-top: -64px"><button type="button" data-dir="-1" aria-label="Previous">&larr;</button><button type="button" data-dir="1" aria-label="Next">&rarr;</button></div>
 <div class="tgrid">
 <figure class="tcard">
 <div class="tvid"><span class="tind">Engineer &amp; business owner</span><video preload="none" playsinline poster="assets/testimonials/t8.jpg" src="assets/testimonials/t8.mp4"></video><button type="button" class="tplay" aria-label="Play: 49 bucks to learn something is a no-brainer."><svg viewBox="0 0 24 24" aria-hidden="true" style="width:22px;height:22px;margin-left:3px"><path d="M6 4l14 8-14 8z" fill="#4D0032"/></svg></button></div>
@@ -705,7 +705,6 @@ a{color:#FF7150}a:hover{color:#FF8F74}
 /* Testimonials: tap to play with sound, one at a time; the file only loads on play */
 (function(){
   var cards=[].slice.call(document.querySelectorAll(".tcard")),grid=document.querySelector(".tgrid");
-  document.querySelectorAll(".tnav button").forEach(function(b){b.addEventListener("click",function(){var c=grid.querySelector(".tcard");grid.scrollBy({left:(c?c.offsetWidth+20:300)*Number(b.dataset.dir),behavior:"smooth"});});});
   cards.forEach(function(c){
     var v=c.querySelector("video"),b=c.querySelector(".tplay");
     if(!v||!b)return;
